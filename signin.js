@@ -11,7 +11,7 @@ if (req.url == "/")
 {
 	res.write("Hello World");
 		file = 'index.html';
-		fs.readFile(file, function(err, txt) {
+		fs.readFile(filepath.join(process.cwd(), file), function(err, txt) {
 			res.writeHead(200, {'Content-Type': 'text/html'});
 			res.write("Hello World");
 			res.write(txt);
