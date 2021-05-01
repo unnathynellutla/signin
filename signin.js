@@ -8,7 +8,6 @@ const urll =process.env.MONGODB_URLL;
 http.createServer(function (req, res) {
 if (req.url === "/")
 {
-	res.write("Hello World");
 		file = 'index.html';
 		fs.readFile(file, function(err, txt) {
 			res.writeHead(200, {'Content-Type': 'text/html'});
