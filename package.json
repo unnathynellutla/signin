@@ -18,5 +18,9 @@
   "dependencies": {
     "mongodb": "^3.6.0"
   },
+  "keywords": [
+    "example",
+    "heroku"
+  ],
   "homepage": ""
 }
