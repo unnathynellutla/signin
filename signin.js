@@ -11,7 +11,7 @@ file = 'index.html';
 		file = 'index.html';
 		fs.readFile(file, function(err, txt) {
 			res.writeHead(200, {'Content-Type': 'text/html'});
-			res.write(txt);
+			res.write("Hello World");
 		});
 	};
 }).listen(port);
