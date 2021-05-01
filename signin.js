@@ -21,8 +21,9 @@ else if (req.url == "/process")
 	console.log("Process the form");
 	pdata = "";
 	req.on('data', data => {
-           pdata += data.toString();
-			document.write(pdata);
+		pdata += data.toString();
+		res.write(pdata);
+		res.write("hellowowrd");
     });
 }
 setTimeout(function(){res.end();}, 2000);
