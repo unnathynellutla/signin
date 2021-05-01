@@ -1,3 +1,10 @@
+var http = require('http');
+var fs = require('fs');
+var qs = require('querystring');
+var port = process.env.PORT || 3000;
+const { MongoClient } = require("mongodb");
+const urll = process.env.MONGODB_URLL;
+
 http.createServer(function (req, res) {
 if (req.url == "/")
 {
@@ -41,5 +48,3 @@ else if (req.url == "/process")
 }
 setTimeout(function(){res.end();}, 2000);
 }).listen(port);
-
-
