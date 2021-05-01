@@ -10,12 +10,12 @@
 	  <div id="email">Email</div>
 	  <div id="fullname">Full Name</div>
     <script>
-      function onSignIn(googleUser) {
+    var fullname;
+      function onSignIn(googleUser, fullname) {
         var profile = googleUser.getBasicProfile();
         console.log("ID: " + profile.getId()); 
         console.log('Full Name: ' + profile.getName() + '<br>');
-	var fullname = String(profile.getGivenName());
-	document.getElementById("fullname").innerHTML = "fullname";
+	fullname = String(profile.getGivenName());
 	console.log('Given Name: ' + profile.getGivenName() + '<br>');
         console.log('Family Name: ' + profile.getFamilyName() + '<br>');
        	console.log("Image URL: " + profile.getImageUrl() + '<br>');
@@ -24,6 +24,7 @@
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
       }
+    document.getElementById("fullname").innerHTML = "fullname";
     </script>
 	<a href="#" onclick="signOut();">Sign out</a>
 	<script>
