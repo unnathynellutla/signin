@@ -1,5 +1,5 @@
 {
-  "name": "sample",
+  "name": "signin",
   "version": "1.0.0",
   "description": "my sample node app",
   "main": "signin.js",
@@ -15,5 +15,8 @@
   "bugs": {
   "url": ""
 },
+  "dependencies": {
+    "mongodb": "^3.6.0"
+  }
   "homepage": ""
 }
