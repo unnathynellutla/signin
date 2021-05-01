@@ -6,7 +6,7 @@ const { MongoClient } = require('mongodb');
 const urll =process.env.MONGODB_URLL;
 
 http.createServer(function (req, res) {
-if (req.url === "/")
+if (req.url == "/")
 {
 		file = 'index.html';
 		fs.readFile(file, function(err, txt) {
