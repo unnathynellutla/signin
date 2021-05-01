@@ -7,14 +7,12 @@ const urll =process.env.MONGODB_URLL;
 
 http.createServer(function (req, res) {
 	res.write("Hello World");
-	if (req.url == "/")
-	{
 		file = 'index.html';
 		fs.readFile(file, function(err, txt) {
 			res.writeHead(200, {'Content-Type': 'text/html'});
 			res.write("Hello World");
 			res.write(txt);
 		});
-	}
+
 	res.end();
 }).listen(port);
