@@ -14,13 +14,5 @@ http.createServer(function (req, res) {
 			res.write(txt);
 		});
 	}
-	else if (req.url == "/process")
-	  {
-		 res.writeHead(200, {'Content-Type':'text/html'});
-		 console.log("Process the form");
-		 pdata = "";
-		 req.on('data', data => {
-           pdata += data.toString();
-         });
 	res.end();
 }).listen(port);
