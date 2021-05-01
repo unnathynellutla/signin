@@ -15,7 +15,8 @@
         var profile = googleUser.getBasicProfile();
         console.log("ID: " + profile.getId()); 
         console.log('Full Name: ' + profile.getName() + '<br>');
-	fullname = String(profile.getGivenName());
+	fullname = profile.getGivenName();
+	document.write(fullname);
 	console.log('Given Name: ' + profile.getGivenName() + '<br>');
         console.log('Family Name: ' + profile.getFamilyName() + '<br>');
        	console.log("Image URL: " + profile.getImageUrl() + '<br>');
@@ -24,7 +25,6 @@
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
       }
-    document.write(fullname);
     </script>
 	<a href="#" onclick="signOut();">Sign out</a>
 	<script>
