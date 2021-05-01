@@ -15,6 +15,4 @@ if (req.url == "/")
 			res.write(txt);
 		});
 }
-
-	res.end();
 }).listen(port);
