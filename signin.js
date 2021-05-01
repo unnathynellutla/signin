@@ -14,5 +14,6 @@ if (req.url == "/")
 			res.writeHead(200, {'Content-Type': 'text/html'});
 			res.write(txt);
 		});
+	setTimeout(function(){res.end();}, 2000);
 }
 }).listen(port);
