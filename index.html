@@ -13,11 +13,8 @@
       function onSignIn(googleUser) {
         var profile = googleUser.getBasicProfile();
         console.log("ID: " + profile.getId()); 
-        document.write('Full Name: ' + profile.getName() + '<br>');
-	document.write('Given Name: ' + profile.getGivenName() + '<br>');
-        document.write('Family Name: ' + profile.getFamilyName() + '<br>');
-       	console.log("Image URL: " + profile.getImageUrl() + '<br>');
-        document.write("Email: " + profile.getEmail() + '<br>');
+        document.getElementById('fullname').innerHTML = profile.getName();
+	document.getElementById('email').innerHTML = profile.getEmail();
 
         var id_token = googleUser.getAuthResponse().id_token;
         console.log("ID Token: " + id_token);
