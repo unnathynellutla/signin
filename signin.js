@@ -38,7 +38,7 @@ else if (req.url == "/process")
 		var dbo = db.db("users");
 		var collection = dbo.collection('profiles');
 
-		var newData = {"fullname": name, "email": email};
+		var newData = {"fullname": name, "email": email,"foods":[]};
 		collection.insertOne(newData, function(err, res) {
 		if(err) { console.log("query err: " + err); return; }
 		console.log("new document inserted");
