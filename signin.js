@@ -22,29 +22,8 @@ else if (req.url == "/process")
 	pdata = "";
 	req.on('data', data => {
            pdata += data.toString();
+			document.write(pdata);
     });
-	req.on('end', () => {
-	pdata = qs.parse(pdata);
-	var name = String(pdata['fullname']);
-	var email = String(pdata['email']);
-		
-	MongoClient.connect(urll, { useUnifiedTopology: true }, function(err, db) {
-	  if(err) { return console.log(err); }
-
-		var dbo = db.db("users");
-		var collection = dbo.collection('profiles');
-
-		var newData = {"fullname": "Unna", "email": "myemail"};
-		collection.insertOne(newData, function(err, res) {
-			if(err) { console.log("query err: " + err); return; }
-			console.log("new document inserted");
-		});
-
-		console.log("Success!");
-		db.close();
-	});  
-	});
-
 }
 setTimeout(function(){res.end();}, 2000);
 }).listen(port);
