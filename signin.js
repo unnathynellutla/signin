@@ -31,19 +31,30 @@ else if (req.url == "/process")
 	var email = String(pdata['email']);
 	res.write("email");
 	res.write(email);
-		
+	
 	MongoClient.connect(urll, { useUnifiedTopology: true }, function(err, db) {
 	  if(err) { return console.log(err); }
 
 		var dbo = db.db("users");
 		var collection = dbo.collection('profiles');
+		var theQuery = {email: "email"} 
+			coll.find(theQuery).toArray(function(err, items) {
+				  if (err) {
+					console.log("Error: '" + err+"'}");
+				  } 
+				  else if(email.length == 0){
+					  var newData = {"fullname": name, "email": email,"foods":[]};
+					  collection.insertOne(newData, function(err, res){
+						  if(err) { 
+							  console.log("query err: " + err); 
+							  return; 
+						}
+					  console.log("new document inserted");
+				});
+			}   
+			});
 
-		var newData = {"fullname": name, "email": email,"foods":[]};
-		collection.insertOne(newData, function(err, res) {
-		if(err) { console.log("query err: " + err); return; }
-		console.log("new document inserted");
-		}   );
-
+		db.close();
 		console.log("Success!");
 
 	});  
@@ -52,3 +63,4 @@ else if (req.url == "/process")
 }
 setTimeout(function(){res.end();}, 2000);
 }).listen(port);
+
