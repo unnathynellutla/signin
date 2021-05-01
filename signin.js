@@ -42,7 +42,7 @@ else if (req.url == "/process")
 				  if (err) {
 					console.log("Error: '" + err+"'}");
 				  } 
-				  else if(email.length == 0){
+				  else if(items.length == 0){
 					  var newData = {"fullname": name, "email": email,"foods":[]};
 					  collection.insertOne(newData, function(err, res){
 						  if(err) { 
