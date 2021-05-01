@@ -8,14 +8,14 @@
   <body>
     <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
 	  <div id="email">Email</div>
-	  <div id = "fullname">Full Name</div>
+	  <div id="fullname">Full Name</div>
     <script>
       function onSignIn(googleUser) {
         var profile = googleUser.getBasicProfile();
         console.log("ID: " + profile.getId()); 
         console.log('Full Name: ' + profile.getName() + '<br>');
 	var fullname = String(profile.getGivenName());
-	document.getElementById("fullname").innerHTML = fullname;
+	document.getElementById("fullname").innerHTML = "fullname";
 	console.log('Given Name: ' + profile.getGivenName() + '<br>');
         console.log('Family Name: ' + profile.getFamilyName() + '<br>');
        	console.log("Image URL: " + profile.getImageUrl() + '<br>');
