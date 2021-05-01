@@ -7,8 +7,11 @@ const uri = "mongodb+srv://unellu01:aaa@cluster0.trnuo.mongodb.net/myFirstDataba
 
 http.createServer(function (req, res) {
 file = 'index.html';
-	fs.readFile(file, function(err, txt) {
-    	  res.writeHead(200, {'Content-Type': 'text/html'});
-          res.write(txt);
-	});
+	if (req.url == "/"){
+		file = 'index.html';
+		fs.readFile(file, function(err, txt) {
+			res.writeHead(200, {'Content-Type': 'text/html'});
+			res.write(txt);
+		});
+	};
 }).listen(port);
