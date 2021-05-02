@@ -28,7 +28,7 @@ else if (req.url == "/process")
 	var name = String(pdata['fullname']);
 	res.write("name");
 	res.write(name);
-	var email = String(pdata['email']);
+	var Email = String(pdata['email']);
 	res.write("email");
 	res.write(email);
 	
@@ -37,13 +37,13 @@ else if (req.url == "/process")
 
 		var dbo = db.db("users");
 		var collection = dbo.collection('profiles');
-		var theQuery = {email: email} 
+		var theQuery = {email: Email} 
 			collection.find(theQuery).toArray(function(err, items) {
 				  if (err) {
 					console.log("Error: '" + err+"'}");
 				  } 
 				  else if(items.length == 0){
-					  var newData = {"fullname": name, "email": email,"foods":[]};
+					  var newData = {"fullname": name, "email": Email,"foods":[]};
 					  collection.insertOne(newData, function(err, res){
 						  if(err) { 
 							  console.log("query err: " + err); 
@@ -63,4 +63,5 @@ else if (req.url == "/process")
 }
 setTimeout(function(){res.end();}, 2000);
 }).listen(port);
+
 
