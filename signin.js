@@ -52,11 +52,6 @@ else if (req.url == "/process")
 					  console.log("new document inserted");
 				});
 			} 
-			else{
-					res.write("<br>Data: <br>");
-					for (i=0; i<items.length; i++)
-					res.write(i+1 + ". name: " + items[i].fullname + " email: " + items[i].email + "<br>");	
-				}
 			
 			});
 
