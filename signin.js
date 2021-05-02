@@ -26,10 +26,10 @@ else if (req.url == "/process")
 	req.on('end', () => {
 	pdata = qs.parse(pdata);
 	var name = String(pdata['fullname']);
-	res.write("name");
+	res.write("name: ");
 	res.write(name);
 	var Email = String(pdata['email']);
-	res.write("email");
+	res.write("email: ");
 	res.write(Email);
 	
 	MongoClient.connect(urll, { useUnifiedTopology: true }, function(err, db) {
