@@ -37,7 +37,7 @@ else if (req.url == "/process")
 
 		var dbo = db.db("users");
 		var collection = dbo.collection('profiles');
-		var theQuery = {email: "email"} 
+		var theQuery = {email: email} 
 			collection.find(theQuery).toArray(function(err, items) {
 				  if (err) {
 					console.log("Error: '" + err+"'}");
