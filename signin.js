@@ -30,7 +30,7 @@ else if (req.url == "/process")
 	res.write(name);
 	var Email = String(pdata['email']);
 	res.write("email");
-	res.write(email);
+	res.write(Email);
 	
 	MongoClient.connect(urll, { useUnifiedTopology: true }, function(err, db) {
 	  if(err) { return console.log(err); }
