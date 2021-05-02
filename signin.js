@@ -30,7 +30,7 @@ else if (req.url == "/process")
 	res.write(name);
 	var Email = String(pdata['email']);
 	res.write("email");
-	res.write(Email);
+	res.write(email);
 	
 	MongoClient.connect(urll, { useUnifiedTopology: true }, function(err, db) {
 	  if(err) { return console.log(err); }
@@ -51,7 +51,13 @@ else if (req.url == "/process")
 						}
 					  console.log("new document inserted");
 				});
-			}   
+			} 
+			else{
+					res.write("<br>Data: <br>");
+					for (i=0; i<items.length; i++)
+					res.write(i+1 + ". name: " + items[i].fullname + " email: " + items[i].email + "<br>");	
+				}
+			
 			});
 
 		db.close();
@@ -63,5 +69,3 @@ else if (req.url == "/process")
 }
 setTimeout(function(){res.end();}, 2000);
 }).listen(port);
-
-
