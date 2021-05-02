@@ -30,7 +30,7 @@ else if (req.url == "/process")
 	res.write(name);
 	var Email = String(pdata['email']);
 	res.write("email");
-	res.write(email);
+	res.write(Email);
 	
 	MongoClient.connect(urll, { useUnifiedTopology: true }, function(err, db) {
 	  if(err) { return console.log(err); }
@@ -60,12 +60,12 @@ else if (req.url == "/process")
 			
 			});
 
-		db.close();
+		setTimeout(function(){db.close;}, 2000);
 		console.log("Success!");
 
 	});  
 	});
 
 }
-setTimeout(function(){res.end();}, 2000);
+setTimeout(function(){res.end();}, 3000);
 }).listen(port);
